@@ -2,7 +2,7 @@
 
 @theme {
   /* — Colores: base oscura + acento teal de señal — */
-  --color-base: #0D1117;          /* fondo principal */
+  --color-canvas: #0D1117;        /* fondo principal */
   --color-surface: #161B22;       /* tarjetas, paneles */
   --color-line: #272D38;          /* bordes, separadores */
   --color-ink: #E6EDF3;           /* texto principal (off-white) */
@@ -18,7 +18,7 @@
 
 @layer base {
   body {
-    background-color: var(--color-base);
+    background-color: var(--color-canvas);
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
