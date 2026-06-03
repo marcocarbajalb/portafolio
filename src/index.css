@@ -1,26 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* — Colores: base oscura + acento teal de señal — */
-  --color-canvas: #0D1117;        /* fondo principal */
-  --color-surface: #161B22;       /* tarjetas, paneles */
-  --color-line: #272D38;          /* bordes, separadores */
-  --color-ink: #E6EDF3;           /* texto principal (off-white) */
-  --color-muted: #8B949E;         /* texto secundario */
-  --color-accent: #2DD4BF;        /* teal de señal */
-  --color-accent-strong: #14B8A6; /* hover / estados activos */
+  /* — Paleta editorial: papel, tinta, reglas grises — */
+  --color-paper: #FBFAF8;   /* fondo: blanco papel, apenas cálido */
+  --color-ink: #1A1A1A;     /* texto principal: casi negro */
+  --color-muted: #6B6B6B;   /* texto secundario, pies de foto */
+  --color-rule: #DCDBD5;    /* bordes de fotos, líneas finas */
 
-  /* — Tipografías — */
-  --font-display: "Space Grotesk Variable", sans-serif;
-  --font-sans: "Inter Variable", sans-serif;
+  /* — Tipografía editorial — */
+  --font-serif: "Newsreader Variable", Georgia, serif;
   --font-mono: "JetBrains Mono Variable", monospace;
 }
 
 @layer base {
   body {
-    background-color: var(--color-canvas);
+    background-color: var(--color-paper);
     color: var(--color-ink);
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }

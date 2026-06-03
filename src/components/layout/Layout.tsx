@@ -7,7 +7,7 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <a href="#contenido" className="sr-only rounded-md font-mono text-sm text-canvas focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-accent focus:px-4 focus:py-2">
+      <a href="#contenido" className="sr-only font-serif text-sm text-paper focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-2">
         Saltar al contenido
       </a>
       {/* Navbar irá aquí más adelante */}

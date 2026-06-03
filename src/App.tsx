@@ -10,12 +10,14 @@ export default function App() {
       <Section
         id="proyectos"
         aria-labelledby="proyectos-title"
-        className="border-t border-line"
-      >
-        <h2 id="proyectos-title" className="font-display text-3xl font-semibold text-ink">
+        className="border-t border-rule"
+        >
+        <h2 id="proyectos-title" className="text-3xl font-semibold text-ink">
           Proyectos
         </h2>
-        <p className="mt-4 font-mono text-sm text-accent">próxima sección</p>
+        <p className="mt-4 font-serif text-sm uppercase tracking-widest text-muted">
+          próxima sección
+        </p>
       </Section>
     </Layout>
   );

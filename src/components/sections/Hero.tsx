@@ -10,9 +10,7 @@ import Container from '../layout/Container';
 
 const container: Variants = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 };
 
 export default function Hero() {
@@ -52,42 +50,44 @@ export default function Hero() {
           style={prefersReduced ? undefined : { opacity, y }}
           className="max-w-3xl"
         >
-          <motion.p
-            variants={item}
-            className="font-mono text-sm uppercase tracking-widest text-accent"
-          >
-            Ciencia de datos · Ingeniería de datos
-          </motion.p>
+          <motion.div variants={item} className="mb-8 flex items-center gap-4">
+            <span className="h-px w-12 bg-ink" />
+            <span className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
+              Ingeniería en ciencia de los datos
+            </span>
+          </motion.div>
 
           <motion.h1
             variants={item}
             id="hero-title"
-            className="mt-6 font-display text-5xl font-bold leading-[1.05] text-ink sm:text-6xl md:text-7xl"
+            className="text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl"
           >
-            Transformando datos complejos en{' '}
-            <span className="text-accent">decisiones estratégicas</span>
+            Transformando datos complejos en decisiones estratégicas
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="mt-6 max-w-2xl text-lg leading-relaxed text-muted"
+            className="mt-8 max-w-2xl font-serif text-lg leading-relaxed text-ink/80 sm:text-xl"
           >
             Soy Marco Carbajal, estudiante de Ingeniería en Ciencia de los Datos
             en la Universidad del Valle de Guatemala. Convierto datos crudos en
             modelos, visualizaciones y productos que impulsan decisiones.
           </motion.p>
 
-          <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
+          <motion.div
+            variants={item}
+            className="mt-10 flex flex-wrap items-center gap-6"
+          >
             
             <a href="#proyectos"
-              className="rounded-lg bg-accent px-6 py-3 font-medium text-canvas transition-colors hover:bg-accent-strong"
+              className="bg-ink px-6 py-3 font-serif text-paper transition-colors hover:bg-ink/85"
             >
               Ver proyectos
             </a>
             
             <a href={cvHref}
               download
-              className="rounded-lg border border-line px-6 py-3 font-medium text-ink transition-colors hover:border-accent hover:text-accent"
+              className="border-b border-ink pb-0.5 font-serif text-ink transition-colors hover:text-muted"
             >
               Descargar CV
             </a>
