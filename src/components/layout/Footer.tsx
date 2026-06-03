@@ -5,11 +5,8 @@ export default function Footer() {
   return (
     <footer className="border-t border-rule py-10">
       <Container>
-        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+        <div className="flex justify-end">
           <p className="font-serif text-sm text-muted">© {year} Marco Carbajal</p>
-          <p className="font-mono text-xs uppercase tracking-wider text-muted">
-            Compuesto en Newsreader · React + Vite
-          </p>
         </div>
       </Container>
     </footer>
