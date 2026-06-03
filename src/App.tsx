@@ -1,12 +1,14 @@
 import Layout from './components/layout/Layout';
 import Hero from './components/sections/Hero';
 import Proyectos from './components/sections/Proyectos';
+import SobreMi from './components/sections/SobreMi';
 
 export default function App() {
   return (
     <Layout>
       <Hero />
       <Proyectos />
+      <SobreMi />
     </Layout>
   );
 }

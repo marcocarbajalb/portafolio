@@ -1,5 +1,6 @@
 import '@fontsource-variable/newsreader';
 import '@fontsource-variable/jetbrains-mono';
+import '@fontsource-variable/newsreader/standard-italic.css';
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
