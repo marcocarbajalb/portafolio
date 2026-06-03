@@ -3,6 +3,7 @@ import Hero from './components/sections/Hero';
 import Proyectos from './components/sections/Proyectos';
 import SobreMi from './components/sections/SobreMi';
 import Habilidades from './components/sections/Habilidades';
+import Contacto from './components/sections/Contacto';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Proyectos />
       <SobreMi />
       <Habilidades />
+      <Contacto />
     </Layout>
   );
 }
