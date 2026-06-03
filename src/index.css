@@ -21,3 +21,32 @@
     text-rendering: optimizeLegibility;
   }
 }
+
+/* — Tarjetas apiladas (mazo de cartas) — */
+.stack-card {
+  position: sticky;
+  top: calc(5rem + var(--i) * 2.5rem); /* cada tarjeta se pega 2.5rem más abajo */
+}
+
+.stack-card-inner {
+  transform-origin: 50% 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .stack {
+      view-timeline-name: --stack;
+    }
+    .stack-card-inner {
+      animation: stack-scale linear forwards;
+      animation-timeline: --stack;
+      animation-range: exit-crossing calc(var(--i) / var(--n) * 100%)
+                       exit-crossing calc((var(--i) + 1) / var(--n) * 100%);
+    }
+    @keyframes stack-scale {
+      to {
+        transform: scale(0.96);
+      }
+    }
+  }
+}
