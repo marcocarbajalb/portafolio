@@ -1,6 +1,7 @@
 import { type CSSProperties } from 'react';
-import { projects } from '../../data/projects';
+import { projects, secondaryProjects } from '../../data/projects';
 import CardProyecto from './CardProyecto';
+import CardSecundario from './CardSecundario';
 import Container from '../layout/Container';
 
 export default function Proyectos() {
@@ -34,6 +35,19 @@ export default function Proyectos() {
           </li>
         ))}
       </ul>
+
+      <Container>
+        <div className="mt-20 md:mt-28">
+          <h3 className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
+            Más allá del análisis
+          </h3>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {secondaryProjects.map((project) => (
+              <CardSecundario key={project.title} project={project} />
+            ))}
+          </div>
+        </div>
+      </Container>
     </section>
   );
 }

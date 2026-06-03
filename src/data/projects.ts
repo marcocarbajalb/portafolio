@@ -1,4 +1,6 @@
 import type { Project } from '../components/sections/CardProyecto';
+import type { SecondaryProject } from '../components/sections/CardSecundario';
+import trackerImg from '../assets/series-tracker.webp';
 
 export const projects: Project[] = [
   {
@@ -69,5 +71,23 @@ export const projects: Project[] = [
       caption: 'El agente jugando de forma autónoma.',
       aspect: 'aspect-[4/3]',
     },
+  },
+];
+
+export const secondaryProjects: SecondaryProject[] = [
+    {
+    category: 'Full Stack',
+    title: 'Tracker de Series',
+    description:
+        'Aplicación para llevar registro de series vistas, con una API REST propia en Go sobre SQLite y un frontend vanilla inspirado en la interfaz de Letterboxd.',
+    stack: ['Go', 'SQLite', 'HTML/CSS/JS'],
+    image: { src: trackerImg, alt: 'Interfaz del Tracker de Series, inspirada en Letterboxd.' },
+    },
+  {
+    category: 'Bases de datos',
+    title: 'Gestión de BD para restaurante',
+    description:
+      'Sistema de reservas, inventario y pedidos sobre una base de datos relacional, con triggers y stored procedures que automatizan alertas de insumos críticos. Construido en Java con programación orientada a objetos.',
+    stack: ['Java', 'PostgreSQL'],
   },
 ];
