@@ -59,7 +59,7 @@
 
 /* — Marquee de logos — */
 .marquee-track {
-  animation: marquee 32s linear infinite;
+  animation: marquee 50s linear infinite;
 }
 
 .marquee:hover .marquee-track {
