@@ -39,7 +39,7 @@ export default function Proyectos() {
       <Container>
         <div className="mt-20 md:mt-28">
           <h3 className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
-            Más allá del análisis
+            Otros proyectos
           </h3>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {secondaryProjects.map((project) => (

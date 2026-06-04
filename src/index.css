@@ -5,9 +5,9 @@
   --color-paper: #FBFAF8;   /* fondo: blanco papel, apenas cálido */
   --color-ink: #1A1A1A;     /* texto principal: casi negro */
   --color-muted: #6B6B6B;   /* texto secundario, pies de foto */
-  --color-rule: #DCDBD5;    /* bordes de fotos, líneas finas */
+  --color-rule: #DCDBD5;    /* bordes, líneas finas */
 
-  /* — Tipografía editorial — */
+  /* — Tipografía — */
   --font-serif: "Newsreader Variable", Georgia, serif;
   --font-mono: "JetBrains Mono Variable", monospace;
 }
@@ -23,9 +23,13 @@
 }
 
 /* — Tarjetas apiladas (mazo de cartas) — */
+.stack {
+  padding-bottom: 55vh; /* le da a la última tarjeta espacio para anclarse */
+}
+
 .stack-card {
   position: sticky;
-  top: calc(5rem + var(--i) * 2.5rem); /* cada tarjeta se pega 2.5rem más abajo */
+  top: calc(5rem + var(--i) * 2.5rem);
 }
 
 .stack-card-inner {
@@ -51,12 +55,6 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
 /* — Marquee de logos — */
 .marquee-track {
   animation: marquee 50s linear infinite;
@@ -74,5 +72,12 @@
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
+  }
+}
+
+/* — Scroll suave — */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
