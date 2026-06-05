@@ -100,18 +100,29 @@ export default function ServidorScroll() {
       aria-label="Anatomía de la infraestructura"
       className="relative h-[300vh] border-t border-rule"
     >
-      <div className="sticky top-0 flex h-screen flex-col items-center justify-center gap-6 md:gap-10 px-6 overflow-hidden bg-paper">
-        <header className="pointer-events-none max-w-2xl text-center">
+      <div className="sticky top-0 flex h-screen flex-col items-center justify-center px-4 overflow-hidden bg-paper">
+        {/* Cambiamos a posicionamiento absoluto para que no empuje el canvas hacia abajo */}
+        <header className="absolute top-6 md:top-8 pointer-events-none max-w-2xl text-center z-10">
           <p className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
             Anatomía de la infraestructura
           </p>
-          <h2 className="mt-3 text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
             La máquina detrás del análisis
           </h2>
         </header>
 
-        <div className="relative w-full max-w-6xl">
-          <canvas ref={canvasRef} width={FRAME_W} height={FRAME_H} className="w-full max-h-[50vh] object-contain md:max-h-[65vh]" />
+        {/* Añadimos un padding superior controlado (pt-14/pt-16) para balancear el espacio del texto flotante */}
+        <div className="relative w-full flex items-center justify-center h-full pt-14 md:pt-16">
+          {/* Establecemos límites reales de viewport height (78vh y 86vh). 
+            Al no usar scale artificial, el renderizado es nativo, nítido y se 
+            mantiene de manera segura dentro de los límites de las líneas divisoras.
+          */}
+          <canvas 
+            ref={canvasRef} 
+            width={FRAME_W} 
+            height={FRAME_H} 
+            className="w-full max-h-[78vh] md:max-h-[86vh] object-contain" 
+          />
           {shouldLoad && !ready && (
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="font-mono text-xs uppercase tracking-widest text-muted">

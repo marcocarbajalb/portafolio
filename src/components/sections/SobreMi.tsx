@@ -5,7 +5,7 @@ const honors = [
   { year: '2024–2026', text: 'Honor al mérito académico (promedio anual > 95), UVG' },
   { year: '2024', text: 'Medalla Francisco Nieves Calvo (promedio más alto de primer año), UVG' },
   { year: '2023', text: 'Valedictorian, Colegio Español de Guatemala "Príncipe de Asturias"' },
-  { year: '2018', text: 'Segundo lugar, Olimpíada Nacional de Ciencias (matemáticas)' },
+  { year: '2018', text: 'Segundo lugar en la Olimpíada Nacional de Ciencias (matemáticas), USAC' },
 ];
 
 const interests = ['Fútbol', 'Fórmula 1', 'Música', 'Videojuegos', 'Entrenamiento físico'];
