@@ -24,12 +24,19 @@
 
 /* — Tarjetas apiladas (mazo de cartas) — */
 .stack {
-  padding-bottom: 55vh; /* le da a la última tarjeta espacio para anclarse */
+  padding-bottom: 0;
 }
 
 .stack-card {
   position: sticky;
-  top: calc(5rem + var(--i) * 2.5rem);
+  
+  top: calc(4rem + var(--i) * 0.75rem); 
+  
+  margin-bottom: 40vh; 
+}
+
+.stack-card:last-child {
+  margin-bottom: 0; 
 }
 
 .stack-card-inner {

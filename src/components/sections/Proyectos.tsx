@@ -5,6 +5,9 @@ import CardSecundario from './CardSecundario';
 import Container from '../layout/Container';
 
 export default function Proyectos() {
+  // Calculamos el total de cartas (los proyectos + 1 carta para "Otros proyectos")
+  const totalCards = projects.length + 1;
+
   return (
     <section
       id="proyectos"
@@ -25,29 +28,31 @@ export default function Proyectos() {
 
       <ul
         className="stack m-0 mt-12 list-none px-4 sm:px-6"
-        style={{ '--n': projects.length } as CSSProperties}
+        style={{ '--n': totalCards } as CSSProperties}
       >
+        {/* Renderizamos las 4 cartas principales */}
         {projects.map((project, i) => (
           <li key={project.title} className="stack-card" style={{ '--i': i } as CSSProperties}>
-            <div className="stack-card-inner mx-auto max-w-5xl border border-rule bg-paper p-6 sm:p-10 md:p-14">
+            <div className="stack-card-inner mx-auto max-w-6xl border border-rule bg-paper p-6 sm:p-10 md:px-16 md:py-14">
               <CardProyecto project={project} reverse={i % 2 === 1} />
             </div>
           </li>
         ))}
-      </ul>
 
-      <Container>
-        <div className="mt-20 md:mt-28">
-          <h3 className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
-            Otros proyectos
-          </h3>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {secondaryProjects.map((project) => (
-              <CardSecundario key={project.title} project={project} />
-            ))}
+        {/* 5ta Carta: Otros Proyectos */}
+        <li className="stack-card" style={{ '--i': projects.length } as CSSProperties}>
+          <div className="stack-card-inner mx-auto max-w-6xl border border-rule bg-paper p-6 sm:p-10 md:px-16 md:py-14">
+            <h3 className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
+              Otros proyectos
+            </h3>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {secondaryProjects.map((project) => (
+                <CardSecundario key={project.title} project={project} />
+              ))}
+            </div>
           </div>
-        </div>
-      </Container>
+        </li>
+      </ul>
     </section>
   );
 }

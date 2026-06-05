@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper/80 backdrop-blur">
       <Container>
-        <nav aria-label="Navegación principal" className="flex h-16 items-center justify-between">
+        <nav aria-label="Navegación principal" className="flex h-13.5 items-center justify-between">
           <a href="#inicio" className="font-serif text-sm font-bold uppercase tracking-[0.1em] text-ink">
             Marco Carbajal
           </a>

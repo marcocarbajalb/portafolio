@@ -3,7 +3,7 @@ import Section from '../layout/Section';
 
 const honors = [
   { year: '2024–2026', text: 'Honor al mérito académico (promedio anual > 95), UVG' },
-  { year: '2024', text: 'Medalla Francisco Nieves Calvo — mejor promedio de primer año, UVG' },
+  { year: '2024', text: 'Medalla Francisco Nieves Calvo (promedio más alto de primer año), UVG' },
   { year: '2023', text: 'Valedictorian, Colegio Español de Guatemala "Príncipe de Asturias"' },
   { year: '2018', text: 'Segundo lugar, Olimpíada Nacional de Ciencias (matemáticas)' },
 ];
@@ -54,7 +54,8 @@ export default function SobreMi() {
               <div className="flex aspect-[4/5] w-full items-center justify-center overflow-hidden border border-rule bg-paper">
                 <span className="font-mono text-xs uppercase tracking-widest text-muted">Retrato (pendiente)</span>
               </div>
-              <figcaption className="mt-3 font-serif text-sm italic text-muted">
+              {/* Se agregó mb-10 para crear una separación más amplia y elegante con la siguiente sección */}
+              <figcaption className="mt-3 mb-10 font-serif text-sm italic text-muted">
                 Marco Carbajal, Ciudad de Guatemala
               </figcaption>
             </figure>

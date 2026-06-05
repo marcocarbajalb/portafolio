@@ -100,7 +100,7 @@ export default function ServidorScroll() {
       aria-label="Anatomía de la infraestructura"
       className="relative h-[300vh] border-t border-rule"
     >
-      <div className="sticky top-0 flex h-screen flex-col items-center justify-center gap-10 px-6">
+      <div className="sticky top-0 flex h-screen flex-col items-center justify-center gap-6 md:gap-10 px-6 overflow-hidden bg-paper">
         <header className="pointer-events-none max-w-2xl text-center">
           <p className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
             Anatomía de la infraestructura
@@ -111,7 +111,7 @@ export default function ServidorScroll() {
         </header>
 
         <div className="relative w-full max-w-6xl">
-          <canvas ref={canvasRef} width={FRAME_W} height={FRAME_H} className="h-auto w-full" />
+          <canvas ref={canvasRef} width={FRAME_W} height={FRAME_H} className="w-full max-h-[50vh] object-contain md:max-h-[65vh]" />
           {shouldLoad && !ready && (
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="font-mono text-xs uppercase tracking-widest text-muted">

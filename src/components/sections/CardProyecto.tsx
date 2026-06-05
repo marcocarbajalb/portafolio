@@ -47,14 +47,16 @@ type CardProyectoProps = { project: Project; reverse?: boolean };
 export default function CardProyecto({ project, reverse = false }: CardProyectoProps) {
   const aspect = project.media.aspect ?? 'aspect-[16/10]';
   return (
+    /* Restauramos el gap a 10/16 para mejor espaciado */
     <article className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
       <div className={cn('order-2', reverse ? 'md:order-2' : 'md:order-1')}>
         <div className="flex items-baseline gap-3">
           <span className="font-mono text-sm text-muted">{project.index}</span>
           <span className="font-serif text-xs uppercase tracking-[0.25em] text-muted">{project.kicker}</span>
         </div>
+        {/* mt-4 le da espacio al título */}
         <h3 className="mt-4 text-3xl font-semibold leading-tight text-ink sm:text-4xl">{project.title}</h3>
-        <div className="mt-6 space-y-4">
+        <div className="mt-6 space-y-5">
           <Block label="El problema" text={project.problem} />
           <Block label="La solución" text={project.solution} />
           <Block label="El resultado" text={project.result} />
@@ -68,7 +70,7 @@ export default function CardProyecto({ project, reverse = false }: CardProyectoP
         <div className={cn('overflow-hidden border border-rule bg-paper', aspect)}>
           <Media media={project.media} />
         </div>
-        {project.media.caption && <figcaption className="mt-3 font-serif text-sm italic text-muted">{project.media.caption}</figcaption>}
+        {project.media.caption && <figcaption className="mt-2 font-serif text-sm italic text-muted">{project.media.caption}</figcaption>}
       </figure>
     </article>
   );
