@@ -1,5 +1,6 @@
 import { motion, useReducedMotion, type Variants } from 'motion/react';
 import Section from '../layout/Section';
+import retrato from '../../assets/retrato.webp';
 
 const honors = [
   { year: '2024–2026', text: 'Honor al mérito académico (promedio anual > 95), UVG' },
@@ -51,10 +52,15 @@ export default function SobreMi() {
 
           <aside className="space-y-10">
             <figure className="m-0">
-              <div className="flex aspect-[4/5] w-full items-center justify-center overflow-hidden border border-rule bg-paper">
-                <span className="font-mono text-xs uppercase tracking-widest text-muted">Retrato (pendiente)</span>
+              <div className="aspect-[4/5] w-full overflow-hidden border border-rule bg-paper">
+                <img
+                  src={retrato}
+                  alt="Retrato de Marco Carbajal"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
               </div>
-              {/* Se agregó mb-10 para crear una separación más amplia y elegante con la siguiente sección */}
               <figcaption className="mt-3 mb-10 font-serif text-sm italic text-muted">
                 Marco Carbajal, Ciudad de Guatemala
               </figcaption>
