@@ -33,7 +33,7 @@ export default function Proyectos() {
         {/* Renderizamos las 4 cartas principales */}
         {projects.map((project, i) => (
           <li key={project.title} className="stack-card" style={{ '--i': i } as CSSProperties}>
-            <div className="stack-card-inner mx-auto max-w-6xl border border-rule bg-paper p-6 sm:p-10 md:px-16 md:py-14">
+            <div className="stack-card-inner mx-auto max-w-6xl border border-rule bg-paper p-6 sm:p-10 md:px-16 md:py-14 flex flex-col justify-center">
               <CardProyecto project={project} reverse={i % 2 === 1} />
             </div>
           </li>
@@ -41,7 +41,7 @@ export default function Proyectos() {
 
         {/* 5ta Carta: Otros Proyectos */}
         <li className="stack-card" style={{ '--i': projects.length } as CSSProperties}>
-          <div className="stack-card-inner mx-auto max-w-6xl border border-rule bg-paper p-6 sm:p-10 md:px-16 md:py-14">
+          <div className="stack-card-inner mx-auto max-w-6xl border border-rule bg-paper p-6 sm:p-10 md:px-16 md:py-14 flex flex-col justify-center">
             <h3 className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
               Otros proyectos
             </h3>

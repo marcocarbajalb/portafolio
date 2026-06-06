@@ -41,6 +41,7 @@
 
 .stack-card-inner {
   transform-origin: 50% 0;
+  min-height: calc(100vh - 4rem - var(--i) * 0.75rem);
 }
 
 @media (prefers-reduced-motion: no-preference) {
