@@ -1,93 +1,122 @@
 import type { Project } from '../components/sections/CardProyecto';
 import type { SecondaryProject } from '../components/sections/CardSecundario';
+import routeOptimizerDemo from '../assets/route-optimizer-demo.webm';
+import mundialPaper from '../assets/mundial-2026-portada-paper.webp';
+import nbaDashboard from '../assets/nba-dashboard-demo.webm';
+import galaxianDemo from '../assets/galaxian-demo.webm';
 import trackerImg from '../assets/series-tracker.webp';
+import restauranteConsola from '../assets/restaurante-consola.webp';
 
 export const projects: Project[] = [
   {
     index: '01',
-    kicker: 'Optimización · Algoritmos',
-    title: 'Route-Optimizer',
+    kicker: 'Algoritmos genéticos · Full Stack',
+    title: 'Route Optimizer',
     problem:
-      'Planificar rutas con múltiples paradas a mano es lento y casi nunca llega a la combinación óptima: el número de rutas posibles crece de forma explosiva con cada parada que se agrega.',
+      'Visitar varios destinos en el orden equivocado desperdicia tiempo y combustible, y la cantidad de órdenes posibles crece tan rápido que encontrar la ruta más corta a mano se vuelve inviable pasados unos pocos puntos.',
     solution:
-      'Implementé un algoritmo genético en Python que evoluciona soluciones de ruta generación tras generación. Lo expuse como servicio con Firebase Cloud Functions y lo conecté a la API de Google Maps para distancias y tiempos reales, todo consumido desde un frontend en React + Vite.',
+      'Implementé un algoritmo genético —selección por torneo, Order Crossover (OX1), mutación por intercambio y elitismo— sobre una Cloud Function serverless en Python con Firebase. El backend construye una matriz de distancias viales reales con la Distance Matrix API de Google Maps (no líneas rectas), y el frontend en React + Vite dibuja el orden óptimo sobre un mapa interactivo.',
     result:
-      'El usuario ingresa sus paradas y, en segundos, obtiene una ruta optimizada dibujada sobre el mapa, lista para seguir.',
-    stack: ['React', 'Vite', 'Python', 'Firebase', 'Google Maps API'],
+      'El usuario obtiene un orden de visita casi óptimo con su distancia total en kilómetros para hasta 15 destinos, calculado evolucionando 500 generaciones de rutas candidatas sobre distancias viales reales en lugar de aproximaciones en línea recta.',
+    stack: ['React', 'Vite', 'Python', 'Firebase', 'Google Maps API', 'Algoritmos genéticos'],
     media: {
-      kind: 'placeholder',
-      label: 'Demo en video (pendiente)',
-      caption: 'Generación de la ruta óptima en tiempo real sobre el mapa.',
+      kind: 'video',
+      src: routeOptimizerDemo,
+      aspect: 'aspect-[16/9]',
+      alt: 'Pantalla de Route Optimizer con un panel de destinos a la izquierda y un mapa con pines numerados conectados por una línea de ruta azul.',
+      caption: 'La interfaz genera y traza la ruta óptima entre los destinos con pines numerados sobre el mapa.',
     },
+    repoUrl: 'https://github.com/marcocarbajalb/route-optimizer',
   },
   {
     index: '02',
-    kicker: 'Modelado · Simulación',
+    kicker: 'Modelado estadístico · Simulación Monte Carlo',
     title: 'Predicción del Mundial FIFA 2026',
     problem:
-      'Predecir un torneo como el Mundial es difícil: hay pocos partidos entre selecciones, mucha incertidumbre, y un formato de grupos más eliminatorias que encadena dependencias entre resultados.',
+      'Predecir un torneo de fútbol es difícil (hay azar en cada partido y el formato de 48 selecciones del Mundial 2026 no tiene precedente histórico), y queda abierta una duda real: ¿el machine learning moderno supera de verdad a los modelos estadísticos clásicos?',
     solution:
-      'Modelé la tasa de goles de cada selección con el modelo Dixon-Coles, lo contrasté contra enfoques de machine learning, y corrí una simulación de Monte Carlo del torneo completo miles de veces para estimar las probabilidades de avance y de título.',
+      'Construí una base de 23 086 partidos internacionales y extendí el ranking FIFA hasta 2026 con un ETL propio sobre la API interna de la FIFA. Comparé cuatro modelos bajo validación temporal: un baseline, Poisson, Dixon-Coles y XGBoost; y luego simulé el torneo 20 000 veces con Monte Carlo usando el mejor de ellos.',
     result:
-      'El trabajo se consolidó en un artículo con formato de paper, con las probabilidades de cada selección y conclusiones sobre qué enfoque modela mejor este tipo de torneo.',
-    stack: ['Python', 'Dixon-Coles', 'Machine Learning', 'Monte Carlo'],
+      'Contra lo esperado, el modelo estadístico Dixon-Coles (1997) ganó con el menor log-loss (0.975) y XGBoost ni siquiera superó al baseline. La simulación corona a Argentina favorita al título con 16.9 %, sobre España y Brasil.',
+    stack: ['Python', 'Dixon-Coles', 'XGBoost', 'Monte Carlo', 'Elo'],
     media: {
-      kind: 'placeholder',
-      label: 'Mockup del paper (pendiente)',
-      caption: 'Distribución de resultados simulados por Monte Carlo.',
+      kind: 'image',
+      src: mundialPaper,
+      fit: 'contain',
+      aspect: 'aspect-[210/297]',
+      alt: 'Portada del paper del proyecto: el escudo de la Universidad del Valle de Guatemala, el título "Predicción de resultados del Mundial FIFA 2026" con su subtítulo sobre modelos estadísticos y simulación de Monte Carlo, el nombre del autor y el emblema del Mundial FIFA 2026.',
+      caption: 'El estudio completo, presentado como paper académico (mayo de 2026).',
     },
+    repoUrl: 'https://github.com/marcocarbajalb/proyecto_final_MCI',
   },
   {
     index: '03',
     kicker: 'Aprendizaje no supervisado · Visualización',
     title: 'Clusterización de jugadores de la NBA',
     problem:
-      'Más allá de las posiciones tradicionales, los estilos de juego en la NBA no son obvios a simple vista. Buscábamos descubrir agrupaciones naturales a partir de las métricas de rendimiento de los jugadores.',
+      'Las estadísticas crudas de un jugador (puntos, rebotes, asistencias, minutos) no dicen por sí solas qué tipo de jugador es; dos perfiles muy distintos pueden esconderse detrás de promedios parecidos, y mirar columna por columna no revela los arquetipos que comparten.',
     solution:
-      'Tras un análisis exploratorio y preprocesamiento completo, apliqué un pipeline de aprendizaje no supervisado (k-means y clustering jerárquico) para agrupar a los jugadores, caracterizando y nombrando cada clúster según las métricas que comparten. Las fotos de cada jugador se extrajeron por web scraping.',
+      'Tomé 50 jugadores de la NBA, hice un EDA y preprocesamiento completo en R, y construí un pipeline de clusterización comparando k-means y agrupamiento jerárquico. Elegí k-means con 6 grupos validando la decisión con el método del codo y el coeficiente de silueta, y enriquecí el dataset con web scraping en Python para traer las fotos de cada jugador vía la API de la NBA.',
     result:
-      'Un dashboard interactivo en Power BI que permite explorar el rendimiento de cada jugador y a qué clúster pertenece, volviendo visible una estructura que los números crudos escondían.',
+      'El modelo separó a los 50 jugadores en 6 arquetipos interpretables y nombrados (de "Alpha del juego" a "Rookie invisible") visualizados en un dashboard interactivo de Power BI que cruza rendimiento, edad y clúster por jugador.',
     stack: ['R', 'Python', 'Power BI', 'k-means', 'Clustering jerárquico'],
     media: {
-      kind: 'placeholder',
-      label: 'Dashboard Power BI (pendiente)',
-      caption: 'Dashboard interactivo de clústeres y rendimiento por jugador.',
+      kind: 'video',
+      src: nbaDashboard,
+      aspect: 'aspect-[16/9]',
+      alt: 'Dashboard interactivo de Power BI con fotos de jugadores de la NBA organizados por clúster y gráficos de puntos, rebotes y asistencias por grupo.',
+      caption: 'Dashboard de Power BI que agrupa a los jugadores de la NBA en seis arquetipos según su perfil de rendimiento.',
     },
+    repoUrl: 'https://github.com/CarFAngM/Proyecto_unsupervised_learning',
   },
   {
     index: '04',
-    kicker: 'Aprendizaje por refuerzo',
-    title: 'Agente autónomo de Galaxian',
+    kicker: 'Aprendizaje por refuerzo · Deep Learning',
+    title: 'Agente autónomo para Galaxian',
     problem:
-      'Enseñarle a un agente a jugar Galaxian es un reto: el entorno de Gymnasium entrega observaciones de alta dimensión y recompensas escasas, sin reglas explícitas que seguir.',
+      'Enseñarle a una máquina a jugar Galaxian desde cero es difícil: solo ve los píxeles de la pantalla y su puntaje, sin reglas ni instrucciones. Debe descubrir cómo ganar únicamente por ensayo y error.',
     solution:
-      'Entrené un agente con aprendizaje por refuerzo sobre el entorno de Galaxian en Gymnasium, dejando que aprendiera una política de juego por prueba y error a partir de la recompensa del propio juego.',
+      'Implementé y comparé dos algoritmos de aprendizaje por refuerzo en Python y PyTorch: Deep Q-Network (DQN) y Advantage Actor-Critic (A2C), usando Gymnasium como entorno. Tras confirmar que DQN era superior, entrené una red convolucional que aprende directamente de los píxeles del juego y probé cuatro variantes de arquitectura para optimizarla.',
     result:
-      'El agente aprendió a jugar de forma efectiva y ganó la competencia del curso frente a los demás agentes.',
-    stack: ['Python', 'Reinforcement Learning', 'Gymnasium'],
+      'El agente aprendió a jugar de forma autónoma y ganó la competencia del curso con 9,230 puntos, partiendo de cero conocimiento sobre el juego.',
+    stack: ['Python', 'PyTorch', 'Gymnasium', 'DQN', 'Reinforcement Learning'],
     media: {
-      kind: 'placeholder',
-      label: 'Demo en video (pendiente)',
-      caption: 'El agente jugando de forma autónoma.',
-      aspect: 'aspect-[4/3]',
+      kind: 'video',
+      src: galaxianDemo,
+      aspect: 'aspect-square',
+      alt: 'Pantalla del videojuego Galaxian con la nave del jugador disparando hacia una formación de enemigos en la parte superior.',
+      caption: 'El agente entrenado juega Galaxian en tiempo real, esquivando y disparando de forma autónoma.',
     },
+    repoUrl: 'https://github.com/marcocarbajalb/Proyecto_final_Galaxian_RL',
   },
 ];
 
 export const secondaryProjects: SecondaryProject[] = [
-    {
+  {
     category: 'Full Stack',
-    title: 'Tracker de Series',
+    title: 'Tracker de series',
     description:
-        'Aplicación para llevar registro de series vistas, con una API REST propia en Go sobre SQLite y un frontend vanilla inspirado en la interfaz de Letterboxd.',
-    stack: ['Go', 'SQLite', 'HTML/CSS/JS'],
-    image: { src: trackerImg, alt: 'Interfaz del Tracker de Series, inspirada en Letterboxd.' },
+      'Aplicación full-stack para llevar el registro de series vistas, con API REST en Go (net/http puro, sin frameworks) y SQLite en el backend, y un frontend en JavaScript vanilla. Lo interesante: cero dependencias de framework en ambos extremos, todo sobre la librería estándar.',
+    stack: ['Go', 'SQLite', 'JavaScript', 'REST API'],
+    image: {
+      src: trackerImg,
+      alt: 'Captura de una app web en modo oscuro con series en cuadrícula; cada tarjeta tiene portada, estrellas de rating y barra de progreso de episodios.',
     },
+    repos: [
+      { label: 'Backend', url: 'https://github.com/marcocarbajalb/proyecto1_web_backend' },
+      { label: 'Frontend', url: 'https://github.com/marcocarbajalb/proyecto1_web_frontend' },
+    ],
+  },
   {
     category: 'Bases de datos',
-    title: 'Gestión de BD para restaurante',
+    title: 'Sistema de gestión para restaurantes',
     description:
-      'Sistema de reservas, inventario y pedidos sobre una base de datos relacional, con triggers y stored procedures que automatizan alertas de insumos críticos. Construido en Java con programación orientada a objetos.',
-    stack: ['Java', 'PostgreSQL'],
+      'Sistema operativo para una cadena de restaurantes (reservas, pedidos e inventario por sucursal) construido en Java sobre PostgreSQL. Lo más interesante: triggers y stored procedures que automatizan las alertas de insumos críticos sin intervención manual.',
+    stack: ['Java', 'PostgreSQL', 'SQL'],
+    image: {
+      src: restauranteConsola,
+      alt: 'Captura de una terminal mostrando la cuadrícula de mesas del sistema, marcadas como disponibles u ocupadas por sucursal. Junto con el menú principal.',
+    },
+    repos: [{ url: 'https://github.com/marcocarbajalb/Proyecto2_BD1_G2' }],
   },
 ];

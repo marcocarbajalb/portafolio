@@ -3,7 +3,7 @@ export type SecondaryProject = {
   title: string;
   description: string;
   stack: string[];
-  repoUrl?: string;
+  repos?: { label?: string; url: string }[];
   image?: { src: string; alt: string };
 };
 
@@ -26,15 +26,20 @@ export default function CardSecundario({ project }: { project: SecondaryProject 
         <h4 className="mt-3 text-xl font-semibold text-ink">{project.title}</h4>
         <p className="mt-3 flex-1 font-serif text-base leading-relaxed text-ink/85">{project.description}</p>
         <p className="mt-5 font-mono text-xs uppercase tracking-wider text-muted">{project.stack.join('  ·  ')}</p>
-        {project.repoUrl && (
-          
-          <a href={project.repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-block self-start border-b border-ink pb-0.5 font-serif text-sm text-ink transition-colors hover:text-muted"
-          >
-            Ver repositorio ↗
-          </a>
+        {project.repos && project.repos.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+            {project.repos.map((repo) => (
+              <a
+                key={repo.url}
+                href={repo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block border-b border-ink pb-0.5 font-serif text-sm text-ink transition-colors hover:text-muted"
+              >
+                {repo.label ? `${repo.label} ↗` : 'Ver repositorio ↗'}
+              </a>
+            ))}
+          </div>
         )}
       </div>
     </article>
