@@ -7,6 +7,7 @@ import {
   type Variants,
 } from 'motion/react';
 import Container from '../layout/Container';
+import gaussSurface from '../../assets/hero-gauss.webp';
 
 const container: Variants = {
   hidden: {},
@@ -40,59 +41,81 @@ export default function Hero() {
       ref={ref}
       id="inicio"
       aria-labelledby="hero-title"
-      className="relative flex min-h-screen scroll-mt-24 items-center"
+      className="relative flex min-h-screen scroll-mt-24 items-center overflow-hidden"
     >
-      <Container>
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          style={prefersReduced ? undefined : { opacity, y }}
-          className="max-w-3xl"
-        >
-          <motion.div variants={item} className="mb-8 flex items-center gap-4">
-            <span className="h-px w-12 bg-ink" />
-            <span className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
-              Ingeniería en ciencia de los datos
-            </span>
+      <Container className="relative z-10">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-10">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            style={prefersReduced ? undefined : { opacity, y }}
+            className="max-w-2xl"
+          >
+            <motion.div variants={item} className="mb-8 flex items-center gap-4">
+              <span className="h-px w-12 bg-ink" />
+              <span className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
+                Ing. en ciencia de los datos
+              </span>
+            </motion.div>
+
+            <motion.h1
+              variants={item}
+              id="hero-title"
+              className="text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl"
+            >
+              Transformando datos complejos en decisiones estratégicas
+            </motion.h1>
+
+            <motion.p
+              variants={item}
+              className="mt-8 max-w-2xl font-serif text-lg leading-relaxed text-ink/80 sm:text-xl"
+            >
+              Soy Marco Carbajal, estudiante de Ingeniería en Ciencia de los Datos
+              en la Universidad del Valle de Guatemala. Convierto datos crudos en
+              modelos, visualizaciones y productos que impulsan decisiones.
+            </motion.p>
+
+            <motion.div
+              variants={item}
+              className="mt-10 flex flex-wrap items-center gap-6"
+            >
+              <a
+                href="#proyectos"
+                className="bg-ink px-6 py-3 font-serif text-paper transition-colors hover:bg-ink/85"
+              >
+                Ver proyectos
+              </a>
+              <a
+                href={cvHref}
+                download
+                className="border-b border-ink pb-0.5 font-serif text-ink transition-colors hover:text-muted"
+              >
+                Descargar CV
+              </a>
+            </motion.div>
           </motion.div>
-
-          <motion.h1
-            variants={item}
-            id="hero-title"
-            className="text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl"
-          >
-            Transformando datos complejos en decisiones estratégicas
-          </motion.h1>
-
-          <motion.p
-            variants={item}
-            className="mt-8 max-w-2xl font-serif text-lg leading-relaxed text-ink/80 sm:text-xl"
-          >
-            Soy Marco Carbajal, estudiante de Ingeniería en Ciencia de los Datos
-            en la Universidad del Valle de Guatemala. Convierto datos crudos en
-            modelos, visualizaciones y productos que impulsan decisiones.
-          </motion.p>
 
           <motion.div
-            variants={item}
-            className="mt-10 flex flex-wrap items-center gap-6"
+            aria-hidden="true"
+            style={prefersReduced ? undefined : { opacity }}
+            className="pointer-events-none hidden select-none lg:-mr-4 lg:block xl:-mr-12"
           >
-            
-            <a href="#proyectos"
-              className="bg-ink px-6 py-3 font-serif text-paper transition-colors hover:bg-ink/85"
-            >
-              Ver proyectos
-            </a>
-            
-            <a href={cvHref}
-              download
-              className="border-b border-ink pb-0.5 font-serif text-ink transition-colors hover:text-muted"
-            >
-              Descargar CV
-            </a>
+            <motion.img
+              src={gaussSurface}
+              alt=""
+              decoding="async"
+              initial={{ opacity: 0, scale: prefersReduced ? 1 : 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="h-auto w-full"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent, #000 12%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent, #000 12%)',
+              }}
+            />
           </motion.div>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
