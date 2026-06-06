@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { cn } from '../../lib/utils';
 
 export type ProjectMedia =
@@ -26,6 +27,46 @@ function Block({ label, text }: { label: string; text: string }) {
   );
 }
 
+function VideoMedia({ src, poster, ariaLabel }: { src: string; poster?: string; ariaLabel?: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 },
+    );
+
+    io.observe(video);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      poster={poster}
+      loop
+      muted
+      playsInline
+      preload="metadata"
+      aria-label={ariaLabel}
+      className="h-full w-full object-cover"
+    />
+  );
+}
+
 function Media({ media }: { media: ProjectMedia }) {
   if (media.kind === 'image') {
     return (
@@ -39,19 +80,7 @@ function Media({ media }: { media: ProjectMedia }) {
     );
   }
   if (media.kind === 'video') {
-    return (
-      <video
-        src={media.src}
-        poster={media.poster}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        aria-label={media.alt ?? media.caption}
-        className="h-full w-full object-cover"
-      />
-    );
+    return <VideoMedia src={media.src} poster={media.poster} ariaLabel={media.alt ?? media.caption} />;
   }
   return (
     <div className="flex h-full w-full items-center justify-center bg-paper">
