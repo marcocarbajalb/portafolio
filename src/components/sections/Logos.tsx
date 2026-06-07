@@ -4,6 +4,7 @@ import uvg from '../../assets/uvg.webp';
 import asturias from '../../assets/cpa.webp';
 import casaHermes from '../../assets/casa_hermes.webp';
 import krudo from '../../assets/krudo_studio.webp';
+import daten from '../../assets/daten.webp';
 
 type Logo = { name: string; src: string; className?: string };
 
@@ -13,6 +14,7 @@ const logos: Logo[] = [
   { name: 'Colegio Príncipe de Asturias', src: asturias },
   { name: 'Casa Hermes', src: casaHermes, className: 'h-16 md:h-24' },
   { name: 'Krudo Studio', src: krudo },
+  { name: 'Daten', src: daten },
 ];
 
 const REPEAT = 3;
