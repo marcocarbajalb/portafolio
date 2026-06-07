@@ -62,9 +62,9 @@ export default function Hero() {
             <motion.h1
               variants={item}
               id="hero-title"
-              className="text-6xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-7xl md:text-8xl"
+              className="text-5xl font-semibold leading-[1.05] tracking-tight text-ink [font-optical-sizing:none] sm:text-6xl md:text-7xl"
             >
-              Los datos no se explican solos
+              Los datos no se explican <em>solos</em>
             </motion.h1>
 
             <motion.p
