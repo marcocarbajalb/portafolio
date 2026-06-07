@@ -5,7 +5,6 @@ import CardSecundario from './CardSecundario';
 import Container from '../layout/Container';
 
 export default function Proyectos() {
-  // Calculamos el total de cartas (los proyectos + 1 carta para "Otros proyectos")
   const totalCards = projects.length + 1;
 
   return (

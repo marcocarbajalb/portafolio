@@ -33,7 +33,7 @@ const skillGroups = [
   {
     index: '05',
     label: 'Idiomas',
-    blurb: 'Porque un análisis solo sirve si quien lo recibe lo entiende: explico resultados en español e inglés.',
+    blurb: 'Porque un análisis solo sirve si quien lo recibe lo entiende.',
     items: ['Español (nativo)', 'Inglés (B2)'],
   },
 ];

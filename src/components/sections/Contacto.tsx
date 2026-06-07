@@ -29,7 +29,7 @@ export default function Contacto() {
           Hablemos.
         </h2>
         <p className="mt-6 font-serif text-lg leading-relaxed text-muted">
-          Estoy abierto a prácticas, proyectos y colaboraciones en ciencia e ingeniería de
+          Estoy abierto oportunidades laborales, proyectos y colaboraciones en ciencia e ingeniería de
           datos. Escríbeme y conversamos.
         </p>
 

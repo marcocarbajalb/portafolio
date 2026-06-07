@@ -67,7 +67,7 @@ export const projects: Project[] = [
       alt: 'Dashboard interactivo de Power BI con fotos de jugadores de la NBA organizados por clúster y gráficos de puntos, rebotes y asistencias por grupo.',
       caption: 'Dashboard de Power BI que agrupa a los jugadores de la NBA en seis arquetipos según su perfil de rendimiento.',
     },
-    repoUrl: 'https://github.com/CarFAngM/Proyecto_unsupervised_learning',
+    repoUrl: 'https://github.com/marcocarbajalb/Proyecto_Clustering_UL',
   },
   {
     index: '04',

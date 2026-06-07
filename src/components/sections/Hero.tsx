@@ -62,18 +62,16 @@ export default function Hero() {
             <motion.h1
               variants={item}
               id="hero-title"
-              className="text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl"
+              className="text-6xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-7xl md:text-8xl"
             >
-              Transformando datos complejos en decisiones estratégicas
+              Los datos no se explican solos
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-8 max-w-2xl font-serif text-lg leading-relaxed text-ink/80 sm:text-xl"
             >
-              Soy Marco Carbajal, estudiante de Ingeniería en Ciencia de los Datos
-              en la Universidad del Valle de Guatemala. Convierto datos crudos en
-              modelos, visualizaciones y productos que impulsan decisiones.
+              Soy Marco Carbajal, estudiante de Ingeniería en Ciencia de los Datos en la Universidad del Valle de Guatemala. Construyo y valido modelos; luego los traduzco en algo que se puede ver y usar.
             </motion.p>
 
             <motion.div
