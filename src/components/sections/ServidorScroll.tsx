@@ -98,10 +98,12 @@ export default function ServidorScroll() {
       ref={sectionRef}
       id="servidor"
       aria-label="Anatomía de la infraestructura"
-      className="relative h-[300vh] border-t border-rule"
+      className="relative h-[150vh] border-t border-rule md:h-[300vh]"
     >
-      <div className="sticky top-0 flex h-screen flex-col items-center justify-center px-4 overflow-hidden bg-paper">
-        <header className="absolute top-6 md:top-8 pointer-events-none max-w-2xl text-center z-10">
+      <div className="sticky top-0 flex h-screen flex-col items-center justify-center gap-6 overflow-hidden bg-paper px-4 md:gap-0">
+        {/* Móvil: el header va en flujo, pegado al canvas como un solo grupo.
+            Escritorio: vuelve a ser absoluto arriba, como ya se veía bien. */}
+        <header className="max-w-2xl text-center md:pointer-events-none md:absolute md:top-8 md:z-10">
           <p className="font-serif text-xs uppercase tracking-[0.25em] text-muted">
             Anatomía de la infraestructura
           </p>
@@ -110,13 +112,14 @@ export default function ServidorScroll() {
           </h2>
         </header>
 
-        <div className="relative w-full flex items-center justify-center h-full pt-14 md:pt-16">
-          {/* Reducimos la altura a 65vh en móviles y 75vh en escritorio para dar más aire */}
-          <canvas 
-            ref={canvasRef} 
-            width={FRAME_W} 
-            height={FRAME_H} 
-            className="w-full max-h-[65vh] md:max-h-[75vh] object-contain" 
+        {/* Móvil: alto automático (= alto de la imagen), centrado bajo el título.
+            Escritorio: ocupa toda la altura y deja aire arriba para el header. */}
+        <div className="relative flex w-full items-center justify-center md:h-full md:pt-16">
+          <canvas
+            ref={canvasRef}
+            width={FRAME_W}
+            height={FRAME_H}
+            className="w-full max-h-[70vh] object-contain md:max-h-[75vh]"
           />
           {shouldLoad && !ready && (
             <div className="absolute inset-0 flex items-center justify-center">

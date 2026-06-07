@@ -2,10 +2,10 @@
 
 @theme {
   /* — Paleta editorial: papel, tinta, reglas grises — */
-  --color-paper: #FBFAF8;   /* fondo: blanco papel, apenas cálido */
-  --color-ink: #1A1A1A;     /* texto principal: casi negro */
-  --color-muted: #6B6B6B;   /* texto secundario, pies de foto */
-  --color-rule: #DCDBD5;    /* bordes, líneas finas */
+  --color-paper: #FBFAF8;
+  --color-ink: #1A1A1A;
+  --color-muted: #6B6B6B;
+  --color-rule: #DCDBD5;
 
   /* — Tipografía — */
   --font-serif: "Newsreader Variable", Georgia, serif;
@@ -22,42 +22,48 @@
   }
 }
 
-/* — Tarjetas apiladas (mazo de cartas) — */
 .stack {
   padding-bottom: 0;
 }
 
 .stack-card {
-  position: sticky;
-  
-  top: calc(4rem + var(--i) * 0.75rem); 
-  
-  margin-bottom: 40vh; 
+  margin-bottom: 2.5rem;
 }
 
 .stack-card:last-child {
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .stack-card-inner {
   transform-origin: 50% 0;
-  min-height: calc(100vh - 4rem - var(--i) * 0.75rem);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .stack {
-      view-timeline-name: --stack;
-    }
-    .stack-card-inner {
-      animation: stack-scale linear forwards;
-      animation-timeline: --stack;
-      animation-range: exit-crossing calc(var(--i) / var(--n) * 100%)
-                       exit-crossing calc((var(--i) + 1) / var(--n) * 100%);
-    }
-    @keyframes stack-scale {
-      to {
-        transform: scale(0.96);
+@media (min-width: 768px) {
+  .stack-card {
+    position: sticky;
+    top: calc(4rem + var(--i) * 0.75rem);
+    margin-bottom: 40vh;
+  }
+
+  .stack-card-inner {
+    min-height: calc(100vh - 4rem - var(--i) * 0.75rem);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .stack {
+        view-timeline-name: --stack;
+      }
+      .stack-card-inner {
+        animation: stack-scale linear forwards;
+        animation-timeline: --stack;
+        animation-range: exit-crossing calc(var(--i) / var(--n) * 100%)
+                         exit-crossing calc((var(--i) + 1) / var(--n) * 100%);
+      }
+      @keyframes stack-scale {
+        to {
+          transform: scale(0.96);
+        }
       }
     }
   }
