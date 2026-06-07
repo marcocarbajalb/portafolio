@@ -29,10 +29,9 @@ export default function Contacto() {
           Hablemos.
         </h2>
         <p className="mt-6 font-serif text-lg leading-relaxed text-muted">
-          Estoy abierto oportunidades laborales, proyectos y colaboraciones en ciencia e ingeniería de
+          Estoy abierto a oportunidades laborales, proyectos y colaboraciones en ciencia e ingeniería de
           datos. Escríbeme y conversamos.
         </p>
-
         
         <a href={`mailto:${email}`}
           className="mt-10 inline-block border-b border-ink pb-1 font-serif text-2xl text-ink transition-colors hover:text-muted sm:text-3xl"
