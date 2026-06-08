@@ -40,12 +40,12 @@ export default function SobreMi() {
         <div className="mt-12 grid gap-12 md:grid-cols-3 md:gap-16">
           <div className="md:col-span-2">
             <p className="font-serif text-lg leading-relaxed text-ink first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-6xl first-letter:font-semibold first-letter:leading-[0.7]">
-              Me llamo Marco Carbajal. Crecí en una familia bicultural, entre Guatemala y México, y
+              Me llamo Marco. Crecí en una familia bicultural, entre Guatemala y México, y
               desde pequeño quise aprender un poco de todo. La ciencia de datos resultó ser el lugar
               donde esa curiosidad, la matemática y la programación por fin se encontraban. Curso el
               cuarto año de Ingeniería en Ciencia de los Datos en la Universidad del Valle de
               Guatemala. Si tuviera que describir mi trayectoria con una palabra, sería{' '}
-              <em>dedicación</em>: más constancia que perfección, y la disposición a equivocarme,
+              <em>disciplina</em>: más constancia que perfección, y la disposición a equivocarme,
               corregir y volver a intentar.
             </p>
             <p className="mt-6 font-serif text-lg leading-relaxed text-ink/85">
