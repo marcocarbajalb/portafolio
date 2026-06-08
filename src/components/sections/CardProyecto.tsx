@@ -114,7 +114,7 @@ export default function CardProyecto({ project, reverse = false }: CardProyectoP
             rel="noopener noreferrer"
             className="mt-6 inline-block border-b border-ink pb-0.5 font-serif text-ink transition-colors hover:text-muted"
           >
-            Ver repositorio ↗
+            Ver repositorio ↗&#xFE0E;
           </a>
         )}
       </div>
