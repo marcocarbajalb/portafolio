@@ -27,7 +27,7 @@
 }
 
 .stack-card {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .stack-card:last-child {
@@ -38,11 +38,11 @@
   transform-origin: 50% 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (min-height: 840px) {
   .stack-card {
     position: sticky;
     top: calc(4rem + var(--i) * 0.75rem);
-    margin-bottom: 40vh;
+    margin-bottom: 40vh; 
   }
 
   .stack-card-inner {
