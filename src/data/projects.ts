@@ -13,9 +13,9 @@ export const projects: Project[] = [
     kicker: 'Algoritmos genéticos · Full Stack',
     title: 'Route Optimizer',
     problem:
-      'Visitar varios destinos en el orden equivocado desperdicia tiempo y combustible, y la cantidad de órdenes posibles crece tan rápido que encontrar la ruta más corta a mano se vuelve inviable pasados unos pocos puntos.',
+      'Visitar varios destinos en el orden equivocado desperdicia tiempo y combustible, y la cantidad de órdenes posibles crece tan rápido que encontrar la ruta más corta por fuerza bruta se vuelve inviable pasados unos pocos puntos.',
     solution:
-      'Implementé un algoritmo genético —selección por torneo, Order Crossover (OX1), mutación por intercambio y elitismo— sobre una Cloud Function serverless en Python con Firebase. El backend construye una matriz de distancias viales reales con la Distance Matrix API de Google Maps (no líneas rectas), y el frontend en React + Vite dibuja el orden óptimo sobre un mapa interactivo.',
+      'Implementé un algoritmo genético (selección por torneo, Order Crossover OX1, mutación por intercambio y elitismo) sobre una Cloud Function serverless en Python con Firebase. El backend construye una matriz de distancias viales reales con la Distance Matrix API de Google Maps (no líneas rectas), y el frontend en React + Vite dibuja el orden óptimo sobre un mapa interactivo.',
     result:
       'El usuario obtiene un orden de visita casi óptimo con su distancia total en kilómetros para hasta 15 destinos, calculado evolucionando 500 generaciones de rutas candidatas sobre distancias viales reales en lugar de aproximaciones en línea recta.',
     stack: ['React', 'Vite', 'Python', 'Firebase', 'Google Maps API', 'Algoritmos genéticos'],
