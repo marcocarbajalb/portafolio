@@ -36,7 +36,7 @@ export default function CardSecundario({ project }: { project: SecondaryProject 
                 rel="noopener noreferrer"
                 className="inline-block border-b border-ink pb-0.5 font-serif text-sm text-ink transition-colors hover:text-muted"
               >
-                {repo.label ? `${repo.label} ↗` : 'Ver repositorio ↗'}
+                {repo.label ? `${repo.label} ↗\uFE0E` : 'Ver repositorio ↗\uFE0E'}
               </a>
             ))}
           </div>

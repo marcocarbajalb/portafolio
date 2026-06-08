@@ -48,7 +48,7 @@ export default function Contacto() {
               rel="noopener noreferrer"
               className="font-serif text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-ink"
             >
-              {link.label} ↗
+              {link.label} ↗&#xFE0E;
             </a>
           ))}
         </div>
